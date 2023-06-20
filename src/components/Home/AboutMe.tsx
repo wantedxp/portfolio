@@ -33,16 +33,16 @@ export default function AboutMe() {
   return (
     <div>
       <main
-        className={`flex flex-wrap-reverse justify-center items-center gap-10 md:gap-32 text-lg xl:text-left xl:flex-nowrap text-center xl:justify-between`}
+        className={`flex flex-wrap-reverse justify-center items-center text-lg xl:text-left xl:flex-nowrap text-center xl:justify-between`}
       >
-        <div className="text-black flex flex-col items-center xl:items-start gap-4 w-full xl:w-120">
+        <div className="text-black flex flex-col items-center xl:items-start gap-4 w-full xl:w-120 ">
           <h1 className="text-3xl sm:text-7xl xl:leading-[5rem]">
             Olá, sou&nbsp;
             <strong className="font-bold">Filipe</strong>
           </h1>
 
-          <div className="mb-12">
-            <h2 className={`${roboto.className} mb-12`}>
+          <div className="mb-4">
+            <h2 className={`${roboto.className} mb-8`}>
               <p className="xl:text-xl">
                 Desenvolvedor Front-end{" "}
                 <strong className="font-bold text-2xl">React</strong>,
@@ -54,7 +54,7 @@ export default function AboutMe() {
             </h2>
             <Link
               href="/contacts"
-              className="bg-gray-500 p-3 rounded-lg w-fit text-2xl transition-all duration-500 hover:bg-opacity-80 hover:px-4 mx-16"
+              className="bg-gray-500 p-3 rounded-lg w-fit text-2xl transition-all duration-500 hover:bg-opacity-80 hover:px-4"
             >
               Fale comigo!
             </Link>
@@ -92,9 +92,8 @@ export default function AboutMe() {
             src={perfilImage}
             alt="Foto perfil de Filipe"
             height={300}
-            width={500}
+            width={400}
             unoptimized
-            className="p-8"
           />
         </div>
       </main>

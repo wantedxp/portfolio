@@ -8,8 +8,8 @@ interface ProjectsProps {
 
 export default function Projects({ projects }: ProjectsProps) {
   return (
-    <article className="space-y-16 flex flex-col items-center flex-wrap">
-      <h2 className="text-2xl md:text-4xl text-center">Projetos Recentes</h2>
+    <article className="space-y-16 flex flex-col items-center flex-wrap pt-28 mb-28">
+      <h2 className="text-2xl md:text-4xl text-center my-32">Projetos Recentes</h2>
       <ul className="flex flex-wrap gap-16 justify-center">
         {projects.map(({ slug, name, image }, index) => {
           return (
