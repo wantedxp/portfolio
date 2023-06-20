@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import perfilImage from "../../../../public/perfil2.jpg";
+import perfilImage from "../../../public/perfil1.png";
 import { Roboto } from "next/font/google";
+import styles from "./styles.module.css";
+import { useState } from "react";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -9,9 +11,30 @@ const roboto = Roboto({
 });
 
 export default function AboutMe() {
+  const [startDate] = useState(new Date(2022, 1, 10));
+
+  function calculateExperience() {
+    const currentDate = new Date();
+    const diffInMoths =
+      (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
+      currentDate.getMonth() -
+      startDate.getMonth();
+
+    const years = Math.floor(diffInMoths / 12);
+    const months = diffInMoths % 12;
+
+    if (years === 0) {
+      return `${months} meses`;
+    } else {
+      return `${years} anos e ${months} meses`;
+    }
+  }
+
   return (
     <div>
-      <main className="flex flex-wrap-reverse justify-center items-center gap-10 md:gap-32 py-8 text-lg xl:text-left xl:flex-nowrap text-center xl:justify-between">
+      <main
+        className={`flex flex-wrap-reverse justify-center items-center gap-10 md:gap-32 text-lg xl:text-left xl:flex-nowrap text-center xl:justify-between`}
+      >
         <div className="text-black flex flex-col items-center xl:items-start gap-4 w-full xl:w-120">
           <h1 className="text-3xl sm:text-7xl xl:leading-[5rem]">
             Olá, sou&nbsp;
@@ -20,20 +43,23 @@ export default function AboutMe() {
 
           <div className="mb-12">
             <h2 className={`${roboto.className} mb-12`}>
-              Desenvolvedor Front-end{" "}
-              <strong className="font-bold text-2xl">React</strong>,{" "}
-              <p>
-                tenho 29 anos e possuo 6 meses de experiência como Freelancer
+              <p className="xl:text-xl">
+                Desenvolvedor Front-end{" "}
+                <strong className="font-bold text-2xl">React</strong>,
+              </p>{" "}
+              <p className="xl:text-xl">
+                tenho 29 anos e possuo {calculateExperience()} meses de
+                experiência como Freelancer.
               </p>
             </h2>
-              <Link
-                href="/contacts"
-                className="bg-gray-500 p-3 rounded-lg w-fit text-2xl transition-all duration-500 hover:bg-opacity-80 hover:px-4 mx-16"
-              >
-                Fale comigo!
-              </Link>
+            <Link
+              href="/contacts"
+              className="bg-gray-500 p-3 rounded-lg w-fit text-2xl transition-all duration-500 hover:bg-opacity-80 hover:px-4 mx-16"
+            >
+              Fale comigo!
+            </Link>
           </div>
-          <h1 className="text-xl"> Tecnologias que uso.</h1>
+          <h1 className="text-2xl md:text-4xl"> Principais Tecnologias.</h1>
           <ul className="flex flex-wrap justify-center xl:grid xl:grid-cols-2 xl:w-fit gap-3 text-xl">
             <li
               style={{ backgroundColor: "#6BDDFA", color: "#000000" }}
@@ -61,14 +87,14 @@ export default function AboutMe() {
             </li>
           </ul>
         </div>
-        <div>
+        <div className={styles.wrapper}>
           <Image
             src={perfilImage}
             alt="Foto perfil de Filipe"
-            height={0}
-            width={350}
+            height={300}
+            width={500}
             unoptimized
-            className=" rounded-full border bg-gradient-to-r from-blue-800 via-blue-500 to to-black p-1"
+            className="p-8"
           />
         </div>
       </main>

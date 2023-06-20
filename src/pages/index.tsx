@@ -1,7 +1,36 @@
-import AboutMe from "@/components/Home/AboutMe/AboutMe";
+import AboutMe from "@/components/Home/AboutMe";
 import Head from "next/head";
+import Projects from "@/components/Home/Projects";
 
 export default function Home() {
+  const projects = [
+    {
+      slug: "em-breve",
+      name: "Em breve",
+      image: {
+        url: "https://i.imgur.com/wg0xzHw.jpg",
+        alt: "Pagina inicial do app de calcular calorias",
+      },
+    },
+    {
+      slug: "em-breve",
+      name: "Em breve",
+      image: {
+        url: "https://i.imgur.com/wg0xzHw.jpg",
+        alt: "Pagina inicial do app de calcular calorias",
+      },
+    },
+    {
+      slug: "em-breve",
+      name: "Em breve",
+      image: {
+        url: "https://i.imgur.com/wg0xzHw.jpg",
+        alt: "Pagina inicial do app de calcular calorias",
+      },
+    },
+       
+  ];
+
   return (
     <>
       <Head>
@@ -12,7 +41,8 @@ export default function Home() {
         />
       </Head>
       <div className="py-12 px-6 md:px-32 space-y-10 md:space-y-28">
-        <AboutMe />       
+        <AboutMe />
+        <Projects projects={projects} />
       </div>
     </>
   );

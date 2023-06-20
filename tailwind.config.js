@@ -5,6 +5,7 @@ export const content = [
   './src/app/**/*.{js,ts,jsx,tsx,mdx}',
 ];
 export const theme = {
+  darkMode: "class",
   width: {
     120: "30rem",
     125: "31.25rem"
